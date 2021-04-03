@@ -1,4 +1,3 @@
-let heart = document.querySelectorAll(".image-grid__heart-icon");
 let editButton = document.querySelector(".profile__edit-button");
 let popup = document.querySelector(".popup");
 let closeButton = document.querySelector(".popup__close-icon");
@@ -29,13 +28,6 @@ function handleFormSubmit(evt) {
   /* Corresponding values on page are changed into the values the user has entered */
   profileName.textContent = nameInput.value;
   profileTitle.textContent = jobInput.value;
-}
-
-/* Add eventlistener to all hearts to make them all clickable */
-for (let i = 0; i < heart.length; i++) {
-  heart[i].addEventListener("click", function () {
-    heart[i].classList.toggle("image-grid__heart-icon_active");
-  });
 }
 
 editButton.addEventListener("click", editProfile);
