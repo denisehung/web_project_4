@@ -1,16 +1,15 @@
-# Project 4: Around The U.S.
+# Web Project 4 - Around The U.S.
 
-### Overview
+## Project description
 
-* Figma
-* Images
+This is the fourth Web Project for the Practicum Web Development bootcamp. It's an interactive page called 'Around The U.S.' where users can add, remove and like photos. The webpage is fully responsive and created with HTML, CSS and JavaScript. The BEM methodology has been applied to structure both CSS and project files.
 
-**Figma**
+## Used technologies:
 
-* [Link to the project in Figma](https://www.figma.com/file/SurN1jaeEQIhuZEDMhmWWf/Sprint-4-Around-The-U.S.-desktop-mobile?node-id=0%3A1)
-
-**Images**
-
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster. 
-
-Have fun with JavaScript!
+1. HTML
+2. CSS
+3. JavaScript
+4. Flexbox
+5. Grid
+6. Figma
+7. BEM

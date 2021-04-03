@@ -1,0 +1,6 @@
+.image-grid__card-textblock {
+  display: flex;
+  width: 246px;
+  justify-content: space-between;
+  margin: 0 auto;
+}

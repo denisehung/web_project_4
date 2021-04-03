@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Around The U.S.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="pages/index.css">
+</head>
+
+<body class="page">
+    <!-- Popup opens when edit button is being clicked -->
+    <div class="popup">
+        <div class="popup__container">
+            <img class="popup__close-icon" src="images/close-icon.svg" alt="Close icon">
+            <div class="popup__form">
+                <p class="popup__container-title">Edit profile</p>
+                <form class="popup__form-items">
+                    <input type="text" class="popup__form-input popup__form-input_type_name" id="name"
+                        autocomplete="off" placeholder="Name">
+                    <input type="text" class="popup__form-input  popup__form-input_type_about" id="about"
+                        autocomplete="off" placeholder="About me">
+                </form>
+                <button class="popup__save-button">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <main class="content">
+        <header class="header">
+            <img src="images/logo.svg" class="logo" alt="logo">
+        </header>
+
+        <section class="profile">
+            <div class="profile__container-left">
+                <img src="images/profile-pic.jpg" class="profile__image" alt="profile picture">
+                <div class="profile__description">
+                    <div class="profile__name-wrapper">
+                        <h1 class="profile__name">Jacques Cousteau</h1>
+                        <img src="images/edit-button.svg" class="profile__edit-button" alt="edit button">
+                    </div>
+                    <p class="profile__about">Explorer</p>
+                </div>
+            </div>
+            <button class="profile__add-button"><img src="images/plus-icon.svg" alt="plus icon"></button>
+        </section>
+
+        <section class="image-grid">
+            <div class="image-grid__card">
+                <img src="images/yosemite-valley.jpg" class="image-grid__card-image" alt="Yosemite Valley">
+                <div class="image-grid__card-textblock">
+                    <p class="image-grid__card-title">Yosemite Valley</p>
+                    <svg class="image-grid__heart-icon" width="21" height="19" viewbox="0 0 21 19"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M18.8368 2.20277L18.8394 2.20544C20.7188 4.13299 20.7225 7.31163 18.8368 9.26495L10.4812 17.9202L2.14988 9.29C1.25494 8.34225 0.75 7.08483 0.75 5.74496C0.75 4.39717 1.23873 3.14375 2.14714 2.20276L2.14715 2.20277L2.14972 2.20008C3.99577 0.268703 7.0174 0.264567 8.88883 2.22231L8.88883 2.22231L8.89139 2.22497L9.94166 3.3129L10.4867 3.87752L11.0261 3.30743L12.0736 2.20014C13.9438 0.265745 16.9677 0.266621 18.8368 2.20277Z"
+                            stroke="black" stroke-width="1.5" />
+                    </svg>
+                </div>
+            </div>
+            <div class="image-grid__card">
+                <img src="images/lake-louise.jpg" class="image-grid__card-image" alt="Lake Louise">
+                <div class="image-grid__card-textblock">
+                    <p class="image-grid__card-title">Lake Louise</p>
+                    <svg class="image-grid__heart-icon" width="21" height="19" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M18.8368 2.20277L18.8394 2.20544C20.7188 4.13299 20.7225 7.31163 18.8368 9.26495L10.4812 17.9202L2.14988 9.29C1.25494 8.34225 0.75 7.08483 0.75 5.74496C0.75 4.39717 1.23873 3.14375 2.14714 2.20276L2.14715 2.20277L2.14972 2.20008C3.99577 0.268703 7.0174 0.264567 8.88883 2.22231L8.88883 2.22231L8.89139 2.22497L9.94166 3.3129L10.4867 3.87752L11.0261 3.30743L12.0736 2.20014C13.9438 0.265745 16.9677 0.266621 18.8368 2.20277Z"
+                            stroke="black" stroke-width="1.5" />
+                    </svg>
+                </div>
+            </div>
+            <div class="image-grid__card">
+                <img src="images/bald-mountains.jpg" class="image-grid__card-image" alt="Bald Mountains">
+                <div class="image-grid__card-textblock">
+                    <p class="image-grid__card-title">Bald Mountains</p>
+                    <svg class="image-grid__heart-icon" width="21" height="19" viewbox="0 0 21 19"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M18.8368 2.20277L18.8394 2.20544C20.7188 4.13299 20.7225 7.31163 18.8368 9.26495L10.4812 17.9202L2.14988 9.29C1.25494 8.34225 0.75 7.08483 0.75 5.74496C0.75 4.39717 1.23873 3.14375 2.14714 2.20276L2.14715 2.20277L2.14972 2.20008C3.99577 0.268703 7.0174 0.264567 8.88883 2.22231L8.88883 2.22231L8.89139 2.22497L9.94166 3.3129L10.4867 3.87752L11.0261 3.30743L12.0736 2.20014C13.9438 0.265745 16.9677 0.266621 18.8368 2.20277Z"
+                            stroke="black" stroke-width="1.5" />
+                    </svg>
+                </div>
+            </div>
+            <div class="image-grid__card">
+                <img src="images/latemar.jpg" class="image-grid__card-image" alt="Latemar">
+                <div class="image-grid__card-textblock">
+                    <p class="image-grid__card-title">Latemar</p>
+                    <svg class="image-grid__heart-icon" width="21" height="19" viewbox="0 0 21 19"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M18.8368 2.20277L18.8394 2.20544C20.7188 4.13299 20.7225 7.31163 18.8368 9.26495L10.4812 17.9202L2.14988 9.29C1.25494 8.34225 0.75 7.08483 0.75 5.74496C0.75 4.39717 1.23873 3.14375 2.14714 2.20276L2.14715 2.20277L2.14972 2.20008C3.99577 0.268703 7.0174 0.264567 8.88883 2.22231L8.88883 2.22231L8.89139 2.22497L9.94166 3.3129L10.4867 3.87752L11.0261 3.30743L12.0736 2.20014C13.9438 0.265745 16.9677 0.266621 18.8368 2.20277Z"
+                            stroke="black" stroke-width="1.5" />
+                    </svg>
+                </div>
+            </div>
+            <div class="image-grid__card">
+                <img src="images/vanoise-national-park.jpg" class="image-grid__card-image" alt="Vanoise National Park">
+                <div class="image-grid__card-textblock">
+                    <p class="image-grid__card-title">Vanoise National Park</p>
+                    <svg class="image-grid__heart-icon" width="21" height="19" viewbox="0 0 21 19"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M18.8368 2.20277L18.8394 2.20544C20.7188 4.13299 20.7225 7.31163 18.8368 9.26495L10.4812 17.9202L2.14988 9.29C1.25494 8.34225 0.75 7.08483 0.75 5.74496C0.75 4.39717 1.23873 3.14375 2.14714 2.20276L2.14715 2.20277L2.14972 2.20008C3.99577 0.268703 7.0174 0.264567 8.88883 2.22231L8.88883 2.22231L8.89139 2.22497L9.94166 3.3129L10.4867 3.87752L11.0261 3.30743L12.0736 2.20014C13.9438 0.265745 16.9677 0.266621 18.8368 2.20277Z"
+                            stroke="black" stroke-width="1.5" />
+                    </svg>
+                </div>
+            </div>
+            <div class="image-grid__card">
+                <img src="images/lago-di-braies.jpg" class="image-grid__card-image" alt="Lago di Braies">
+                <div class="image-grid__card-textblock">
+                    <p class="image-grid__card-title">Lago di Braies</p>
+                    <svg class="image-grid__heart-icon" width="21" height="19" viewbox="0 0 21 19"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M18.8368 2.20277L18.8394 2.20544C20.7188 4.13299 20.7225 7.31163 18.8368 9.26495L10.4812 17.9202L2.14988 9.29C1.25494 8.34225 0.75 7.08483 0.75 5.74496C0.75 4.39717 1.23873 3.14375 2.14714 2.20276L2.14715 2.20277L2.14972 2.20008C3.99577 0.268703 7.0174 0.264567 8.88883 2.22231L8.88883 2.22231L8.89139 2.22497L9.94166 3.3129L10.4867 3.87752L11.0261 3.30743L12.0736 2.20014C13.9438 0.265745 16.9677 0.266621 18.8368 2.20277Z"
+                            stroke="black" stroke-width="1.5" />
+                    </svg>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <p class="footer__text">&copy; 2020 Around The U.S.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

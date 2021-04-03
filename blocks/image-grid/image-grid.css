@@ -1,0 +1,27 @@
+@import url(./__card/image-grid__card.css);
+@import url(./__card-image/image-grid__card-image.css);
+@import url(./__card-textblock/image-grid__card-textblock.css);
+@import url(./__card-title/image-grid__card-title.css);
+@import url(./__heart-icon/image-grid__heart-icon.css);
+@import url(./__heart-icon/_active/image-grid__heart-icon_active.css);
+
+.image-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 17px;
+  grid-row-gap: 20px;
+}
+
+@media screen and (max-width: 900px) {
+  .image-grid {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 610px) {
+  .image-grid {
+    grid-template-columns: 1fr;
+  }
+}
