@@ -3,7 +3,6 @@
 @import url(./__form/popup__form.css);
 @import url(./__form-items/popup__form-items.css);
 @import url(./__form-input/popup__form-input.css);
-@import url(./__form-input/_type/popup__form-input_type_about.css);
 @import url(./__save-button/popup__save-button.css);
 
 .popup {
@@ -17,8 +16,4 @@
   justify-content: center;
   align-items: center;
   display: none;
-}
-
-.popup_opened {
-  display: flex;
 }

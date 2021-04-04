@@ -1,3 +1,5 @@
+let form = document.querySelector(".popup__form-items");
+let heart = document.querySelectorAll(".card__heart-icon");
 let editButton = document.querySelector(".profile__edit-button");
 let popup = document.querySelector(".popup");
 let closeButton = document.querySelector(".popup__close-icon");
@@ -25,12 +27,22 @@ function closePopup() {
 /* Submit form  */
 function handleFormSubmit(evt) {
   evt.preventDefault();
+
   /* Corresponding values on page are changed into the values the user has entered */
   profileName.textContent = nameInput.value;
   profileTitle.textContent = jobInput.value;
+
+  closePopup();
+}
+
+/* Add eventlistener to all hearts, making them all clickable
+so we can toggle between inactive and active status */
+for (let i = 0; i < heart.length; i++) {
+  heart[i].addEventListener("click", function () {
+    heart[i].classList.toggle("card__heart-icon_active");
+  });
 }
 
 editButton.addEventListener("click", editProfile);
 closeButton.addEventListener("click", closePopup);
-saveButton.addEventListener("click", handleFormSubmit);
-saveButton.addEventListener("click", closePopup);
+form.addEventListener("submit", handleFormSubmit);

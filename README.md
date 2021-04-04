@@ -4,6 +4,8 @@
 
 This is the fourth Web Project for the Practicum Web Development bootcamp. It's an interactive page called 'Around The U.S.' where users can add, remove and like photos. The webpage is fully responsive and created with HTML, CSS and JavaScript. The BEM methodology has been applied to structure both CSS and project files.
 
+The project can be viewed here: [https://denisehung.github.io/web_project_4/](https://denisehung.github.io/web_project_4/)
+
 ## Used technologies:
 
 1. HTML

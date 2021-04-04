@@ -9,83 +9,65 @@
 </head>
 
 <body class="page">
-    <!-- Popup opens when edit button is being clicked -->
-    <div class="popup">
-        <div class="popup__container">
-            <img class="popup__close-icon" src="images/close-icon.svg" alt="Close icon">
-            <div class="popup__form">
-                <p class="popup__container-title">Edit profile</p>
-                <form class="popup__form-items">
-                    <input type="text" class="popup__form-input popup__form-input_type_name" id="name"
-                        autocomplete="off" placeholder="Name">
-                    <input type="text" class="popup__form-input  popup__form-input_type_about" id="about"
-                        autocomplete="off" placeholder="About me">
-                </form>
-                <button class="popup__save-button">Save</button>
-            </div>
-        </div>
-    </div>
-
+    <header class="header">
+        <img src="images/logo.svg" class="logo" alt="logo">
+    </header>
     <main class="content">
-        <header class="header">
-            <img src="images/logo.svg" class="logo" alt="logo">
-        </header>
-
         <section class="profile">
-            <div class="profile__container-left">
+            <div class="profile__details">
                 <img src="images/profile-pic.jpg" class="profile__image" alt="profile picture">
                 <div class="profile__description">
                     <div class="profile__name-wrapper">
                         <h1 class="profile__name">Jacques Cousteau</h1>
-                        <img src="images/edit-button.svg" class="profile__edit-button" alt="edit button">
+                        <button class="profile__edit-button" type="submit" aria-label="Edit profile"></button>
                     </div>
                     <p class="profile__about">Explorer</p>
                 </div>
             </div>
-            <button class="profile__add-button"><img src="images/plus-icon.svg" alt="plus icon"></button>
+            <button class="profile__add-button" type="submit" aria-label="Add image"></button>
         </section>
 
         <section class="image-grid">
-            <div class="image-grid__card">
-                <img src="images/yosemite-valley.jpg" class="image-grid__card-image" alt="Yosemite Valley">
-                <div class="image-grid__card-textblock">
-                    <p class="image-grid__card-title">Yosemite Valley</p>
-                    <img class="image-grid__heart-icon" src="images/heart-icon.svg" alt="like">
+            <div class="card">
+                <img src="images/yosemite-valley.jpg" class="card__image" alt="Yosemite Valley">
+                <div class="card__textblock">
+                    <h2 class="card__title">Yosemite Valley</h2>
+                    <button class="card__heart-icon" type="submit" aria-label="Like"></button>
                 </div>
             </div>
-            <div class="image-grid__card">
-                <img src="images/lake-louise.jpg" class="image-grid__card-image" alt="Lake Louise">
-                <div class="image-grid__card-textblock">
-                    <p class="image-grid__card-title">Lake Louise</p>
-                    <img class="image-grid__heart-icon" src="images/heart-icon.svg" alt="like">
+            <div class="card">
+                <img src="images/lake-louise.jpg" class="card__image" alt="Lake Louise">
+                <div class="card__textblock">
+                    <h2 class="card__title">Lake Louise</h2>
+                    <button class="card__heart-icon" type="submit" aria-label="Like"></button>
                 </div>
             </div>
-            <div class="image-grid__card">
-                <img src="images/bald-mountains.jpg" class="image-grid__card-image" alt="Bald Mountains">
-                <div class="image-grid__card-textblock">
-                    <p class="image-grid__card-title">Bald Mountains</p>
-                    <img class="image-grid__heart-icon" src="images/heart-icon.svg" alt="like">
+            <div class="card">
+                <img src="images/bald-mountains.jpg" class="card__image" alt="Bald Mountains">
+                <div class="card__textblock">
+                    <h2 class="card__title">Bald Mountains</h2>
+                    <button class="card__heart-icon" type="submit" aria-label="Like"></button>
                 </div>
             </div>
-            <div class="image-grid__card">
-                <img src="images/latemar.jpg" class="image-grid__card-image" alt="Latemar">
-                <div class="image-grid__card-textblock">
-                    <p class="image-grid__card-title">Latemar</p>
-                    <img class="image-grid__heart-icon" src="images/heart-icon.svg" alt="like">
+            <div class="card">
+                <img src="images/latemar.jpg" class="card__image" alt="Latemar">
+                <div class="card__textblock">
+                    <h2 class="card__title">Latemar</h2>
+                    <button class="card__heart-icon" type="submit" aria-label="Like"></button>
                 </div>
             </div>
-            <div class="image-grid__card">
-                <img src="images/vanoise-national-park.jpg" class="image-grid__card-image" alt="Vanoise National Park">
-                <div class="image-grid__card-textblock">
-                    <p class="image-grid__card-title">Vanoise National Park</p>
-                    <img class="image-grid__heart-icon" src="images/heart-icon.svg" alt="like">
+            <div class="card">
+                <img src="images/vanoise-national-park.jpg" class="card__image" alt="Vanoise National Park">
+                <div class="card__textblock">
+                    <h2 class="card__title">Vanoise National Park</h2>
+                    <button class="card__heart-icon" type="submit" aria-label="Like"></button>
                 </div>
             </div>
-            <div class="image-grid__card">
-                <img src="images/lago-di-braies.jpg" class="image-grid__card-image" alt="Lago di Braies">
-                <div class="image-grid__card-textblock">
-                    <p class="image-grid__card-title">Lago di Braies</p>
-                    <img class="image-grid__heart-icon" src="images/heart-icon.svg" alt="like">
+            <div class="card">
+                <img src="images/lago-di-braies.jpg" class="card__image" alt="Lago di Braies">
+                <div class="card__textblock">
+                    <h2 class="card__title">Lago di Braies</h2>
+                    <button class="card__heart-icon" type="submit" aria-label="Like"></button>
                 </div>
             </div>
         </section>
@@ -93,7 +75,24 @@
     <footer class="footer">
         <p class="footer__text">&copy; 2020 Around The U.S.</p>
     </footer>
-    <script src="script.js"></script>
+    <!-- Popup opens when edit button is being clicked -->
+    <div class="popup">
+        <div class="popup__container">
+            <button class="popup__close-icon" type="submit" aria-label="Close popup"></button>
+            <div class="popup__form">
+                <h2 class="popup__container-title">Edit profile</h2>
+                <form class="popup__form-items" name="popupForm">
+                    <input type="text" class="popup__form-input popup__form-input_type_name" id="name"
+                        autocomplete="off" placeholder="Name" name="name" required>
+                    <input type="text" class="popup__form-input  popup__form-input_type_about" id="about"
+                        autocomplete="off" placeholder="About me" name="about" required>
+                    <input class="popup__save-button" type="submit" aria-label="Save changes" value="Save">
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <script src="scripts/script.js"></script>
 </body>
 
 </html>

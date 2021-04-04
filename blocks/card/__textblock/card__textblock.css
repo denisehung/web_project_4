@@ -1,6 +1,6 @@
-.image-grid__card-textblock {
+.card__textblock {
   display: flex;
-  width: 246px;
+  max-width: 246px;
   justify-content: space-between;
   margin: 0 auto;
 }

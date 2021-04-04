@@ -1,0 +1,10 @@
+.card__heart-icon {
+  align-self: center;
+  cursor: pointer;
+  width: 21px;
+  height: 19px;
+  border: 0;
+  outline: none;
+  background-color: #fff;
+  background-image: url(../../../images/heart-icon.svg);
+}
