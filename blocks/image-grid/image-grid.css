@@ -1,9 +1,3 @@
-@import url(./__card/image-grid__card.css);
-@import url(./__card-image/image-grid__card-image.css);
-@import url(./__card-textblock/image-grid__card-textblock.css);
-@import url(./__card-title/image-grid__card-title.css);
-@import url(./__heart-icon/image-grid__heart-icon.css);
-
 .image-grid {
   width: 100%;
   display: grid;
