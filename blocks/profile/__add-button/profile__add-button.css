@@ -1,7 +1,6 @@
 .profile__add-button {
   height: 50px;
   width: 150px;
-  border: 0;
   outline: none;
   background-image: url(../../../images/plus-icon.svg);
   background-repeat: no-repeat;
