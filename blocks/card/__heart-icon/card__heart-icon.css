@@ -9,3 +9,7 @@
   background-image: url(../../../images/heart-icon.svg);
   background-repeat: no-repeat;
 }
+
+.card__heart-icon:focus {
+  outline: none;
+}
