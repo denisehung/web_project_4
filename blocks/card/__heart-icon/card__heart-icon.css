@@ -7,4 +7,5 @@
   outline: none;
   background-color: #fff;
   background-image: url(../../../images/heart-icon.svg);
+  background-repeat: no-repeat;
 }
