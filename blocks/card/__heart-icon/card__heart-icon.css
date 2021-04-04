@@ -1,4 +1,5 @@
 .card__heart-icon {
+  /* prevents highlight around icon when button is touched on mobile */
   -webkit-tap-highlight-color: transparent;
   align-self: center;
   cursor: pointer;
@@ -9,8 +10,4 @@
   background-color: #fff;
   background-image: url(../../../images/heart-icon.svg);
   background-repeat: no-repeat;
-}
-
-.card__heart-icon:focus {
-  outline: none;
 }
