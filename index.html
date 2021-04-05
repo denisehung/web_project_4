@@ -19,12 +19,12 @@
                 <div class="profile__description">
                     <div class="profile__name-wrapper">
                         <h1 class="profile__name">Jacques Cousteau</h1>
-                        <button class="profile__edit-button" type="submit" aria-label="Edit profile"></button>
+                        <button class="profile__edit-button" type="button" aria-label="Edit profile"></button>
                     </div>
                     <p class="profile__about">Explorer</p>
                 </div>
             </div>
-            <button class="profile__add-button" type="submit" aria-label="Add image"></button>
+            <button class="profile__add-button" type="button" aria-label="Add image"></button>
         </section>
 
         <section class="image-grid">
@@ -32,42 +32,42 @@
                 <img src="images/yosemite-valley.jpg" class="card__image" alt="Yosemite Valley">
                 <div class="card__textblock">
                     <h2 class="card__title">Yosemite Valley</h2>
-                    <button class="card__heart-icon" type="submit" aria-label="Like"></button>
+                    <button class="card__heart-icon" type="button" aria-label="Like"></button>
                 </div>
             </div>
             <div class="card">
                 <img src="images/lake-louise.jpg" class="card__image" alt="Lake Louise">
                 <div class="card__textblock">
                     <h2 class="card__title">Lake Louise</h2>
-                    <button class="card__heart-icon" type="submit" aria-label="Like"></button>
+                    <button class="card__heart-icon" type="button" aria-label="Like"></button>
                 </div>
             </div>
             <div class="card">
                 <img src="images/bald-mountains.jpg" class="card__image" alt="Bald Mountains">
                 <div class="card__textblock">
                     <h2 class="card__title">Bald Mountains</h2>
-                    <button class="card__heart-icon" type="submit" aria-label="Like"></button>
+                    <button class="card__heart-icon" type="button" aria-label="Like"></button>
                 </div>
             </div>
             <div class="card">
                 <img src="images/latemar.jpg" class="card__image" alt="Latemar">
                 <div class="card__textblock">
                     <h2 class="card__title">Latemar</h2>
-                    <button class="card__heart-icon" type="submit" aria-label="Like"></button>
+                    <button class="card__heart-icon" type="button" aria-label="Like"></button>
                 </div>
             </div>
             <div class="card">
                 <img src="images/vanoise-national-park.jpg" class="card__image" alt="Vanoise National Park">
                 <div class="card__textblock">
                     <h2 class="card__title">Vanoise National Park</h2>
-                    <button class="card__heart-icon" type="submit" aria-label="Like"></button>
+                    <button class="card__heart-icon" type="button" aria-label="Like"></button>
                 </div>
             </div>
             <div class="card">
                 <img src="images/lago-di-braies.jpg" class="card__image" alt="Lago di Braies">
                 <div class="card__textblock">
                     <h2 class="card__title">Lago di Braies</h2>
-                    <button class="card__heart-icon" type="submit" aria-label="Like"></button>
+                    <button class="card__heart-icon" type="button" aria-label="Like"></button>
                 </div>
             </div>
         </section>
@@ -78,7 +78,7 @@
     <!-- Popup opens when edit button is being clicked -->
     <div class="popup">
         <div class="popup__container">
-            <button class="popup__close-icon" type="submit" aria-label="Close popup"></button>
+            <button class="popup__close-icon" type="button" aria-label="Close popup"></button>
             <div class="popup__form">
                 <h2 class="popup__container-title">Edit profile</h2>
                 <form class="popup__form-items" name="popupForm">
@@ -86,7 +86,7 @@
                         autocomplete="off" placeholder="Name" name="name" required>
                     <input type="text" class="popup__form-input  popup__form-input_type_about" id="about"
                         autocomplete="off" placeholder="About me" name="about" required>
-                    <input class="popup__save-button" type="submit" aria-label="Save changes" value="Save">
+                    <button class="popup__save-button" type="submit" aria-label="Save changes">Save</button>
                 </form>
 
             </div>

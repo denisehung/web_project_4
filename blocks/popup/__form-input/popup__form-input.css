@@ -10,6 +10,7 @@
   padding-top: 13px;
   padding-bottom: 13px;
   margin-bottom: 17px;
+  box-sizing: border-box;
 }
 
 .popup__form-input:last-child {

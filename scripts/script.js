@@ -35,14 +35,6 @@ function handleFormSubmit(evt) {
   closePopup();
 }
 
-/* Add eventlistener to all hearts, making them all clickable
-so we can toggle between inactive and active status */
-for (let i = 0; i < heart.length; i++) {
-  heart[i].addEventListener("click", function () {
-    heart[i].classList.toggle("card__heart-icon_active");
-  });
-}
-
 editButton.addEventListener("click", editProfile);
 closeButton.addEventListener("click", closePopup);
 form.addEventListener("submit", handleFormSubmit);

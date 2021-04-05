@@ -5,7 +5,7 @@
   background-image: url(../../../images/plus-icon.svg);
   background-repeat: no-repeat;
   background-position: center;
-  background-color: #000;
+  background-color: transparent;
   border: 2px solid #fff;
   align-self: center;
   transition: opacity 0.4s ease;
