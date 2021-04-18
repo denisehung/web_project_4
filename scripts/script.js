@@ -91,17 +91,17 @@ function openImage(cardElement) {
 }
 
 // Create new card
-function createCard(titleValue, urlValue) {
+function createCard(name, link) {
   const cardTemplate = document.querySelector("#card-template").content;
   const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
   const cardImage = cardElement.querySelector(".card__image");
   const cardTitle = cardElement.querySelector(".card__title");
 
-  cardTitle.textContent = titleValue;
-  cardImage.src = urlValue;
+  cardTitle.textContent = name;
+  cardImage.src = link;
   cardImage.alt = cardTitle.textContent;
 
-  // Add these functions to newly created cards
+  // Add these functionalities to created cards
   likeImage(cardElement);
   deleteImage(cardElement);
   openImage(cardElement);
@@ -109,15 +109,19 @@ function createCard(titleValue, urlValue) {
   return cardElement;
 }
 
-// Load inital cards from array
+// Load inital cards by looping through array
 initialCards.forEach(function (item) {
-  const card = createCard(item.name, item.link);
+  let name = item.name;
+  let link = item.link;
+
+  // Create new card, get values from array and append it to the container
+  const card = createCard(name, link);
   cardContainer.append(card);
 });
 
 // Open modal popup with edit form when clicked
 function editProfile() {
-  // Input fields are filled in with values on page
+  // Input fields contain corresponding values on page
   nameInput.value = profileName.textContent;
   jobInput.value = profileTitle.textContent;
 
@@ -138,11 +142,11 @@ function handleFormSubmit(evt) {
 // Submit form to create new card
 function handleFormSubmitImg(evt) {
   evt.preventDefault();
-  const title = document.querySelector(".popup__form-input_type_title");
-  const url = document.querySelector(".popup__form-input_type_img");
+  let name = document.querySelector(".popup__form-input_type_title").value;
+  let link = document.querySelector(".popup__form-input_type_img").value;
 
   // Create new card, get values from input field and prepend it to the container
-  const card = createCard(title.value, url.value);
+  const card = createCard(name, link);
   cardContainer.prepend(card);
 
   // Clear input values after submitting
