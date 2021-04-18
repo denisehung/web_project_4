@@ -8,10 +8,10 @@ const editCloseButton = document.querySelector(".popup__close-icon_type_edit");
 const addImgButton = document.querySelector(".profile__add-button");
 const addImgForm = document.querySelector(".popup__form_type_add-img");
 const addImgPopup = document.querySelector(".popup_type_add-img");
-const addImgCloseButton = document.querySelector(".popup__close-icon_type_add-img");
+const addImgCloseButton = document.querySelector(".popup__close-icon_add-img");
 
-const closeImagePopup = document.querySelector(".popup__close-icon_type_close-img");
-const imagePopup = document.querySelector(".popup_type_image");
+const imagePopup = document.querySelector(".image-popup");
+const closeImagePopup = document.querySelector(".image-popup__close-button");
 
 const nameInput = document.querySelector(".popup__form-input_type_name");
 const jobInput = document.querySelector(".popup__form-input_type_about");
@@ -79,8 +79,8 @@ function closePopup(popupElement) {
 function openImage(cardElement) {
   const cardImage = cardElement.querySelector(".card__image");
   const cardTitle = cardElement.querySelector(".card__title");
-  const largeImage = document.querySelector(".popup__image");
-  const imageCaption = document.querySelector(".popup__caption");
+  const largeImage = document.querySelector(".image-popup__image");
+  const imageCaption = document.querySelector(".image-popup__caption");
 
   cardImage.addEventListener("click", function () {
     largeImage.src = cardImage.src;
@@ -142,16 +142,16 @@ function handleFormSubmit(evt) {
 // Submit form to create new card
 function handleFormSubmitImg(evt) {
   evt.preventDefault();
-  let name = document.querySelector(".popup__form-input_type_title").value;
-  let link = document.querySelector(".popup__form-input_type_img").value;
+  let name = document.querySelector(".popup__form-input_type_title");
+  let link = document.querySelector(".popup__form-input_type_img");
 
   // Create new card, get values from input field and prepend it to the container
-  const card = createCard(name, link);
+  let card = createCard(name.value, link.value);
   cardContainer.prepend(card);
 
   // Clear input values after submitting
-  title.value = "";
-  url.value = "";
+  name.value = "";
+  link.value = "";
 
   closePopup(addImgPopup);
 }
