@@ -8,10 +8,14 @@ const editCloseButton = document.querySelector(".popup__close-icon_type_edit");
 const addImgButton = document.querySelector(".profile__add-button");
 const addImgForm = document.querySelector(".popup__form_type_add-img");
 const addImgPopup = document.querySelector(".popup_type_add-img");
-const addImgCloseButton = document.querySelector(".popup__close-icon_add-img");
+const addImgCloseButton = document.querySelector(".popup__close-icon_type_add-img");
+const cardName = document.querySelector(".popup__form-input_type_title");
+const cardLink = document.querySelector(".popup__form-input_type_img");
 
-const imagePopup = document.querySelector(".image-popup");
-const closeImagePopup = document.querySelector(".image-popup__close-button");
+const imagePopup = document.querySelector(".popup_type_image");
+const closeImagePopup = document.querySelector(".popup__close-icon_type_image");
+const largeImage = document.querySelector(".popup__image");
+const imageCaption = document.querySelector(".popup__caption");
 
 const nameInput = document.querySelector(".popup__form-input_type_name");
 const jobInput = document.querySelector(".popup__form-input_type_about");
@@ -76,16 +80,13 @@ function closePopup(popupElement) {
 }
 
 // Open popup to display larger image
-function openImage(cardElement) {
+function openImage(cardElement, name, link) {
   const cardImage = cardElement.querySelector(".card__image");
-  const cardTitle = cardElement.querySelector(".card__title");
-  const largeImage = document.querySelector(".image-popup__image");
-  const imageCaption = document.querySelector(".image-popup__caption");
 
   cardImage.addEventListener("click", function () {
-    largeImage.src = cardImage.src;
-    largeImage.alt = cardTitle.textContent;
-    imageCaption.textContent = cardTitle.textContent;
+    largeImage.src = link;
+    largeImage.alt = name;
+    imageCaption.textContent = name;
     openPopup(imagePopup);
   });
 }
@@ -104,15 +105,15 @@ function createCard(name, link) {
   // Add these functionalities to created cards
   likeImage(cardElement);
   deleteImage(cardElement);
-  openImage(cardElement);
+  openImage(cardElement, name, link);
 
   return cardElement;
 }
 
 // Load inital cards by looping through array
 initialCards.forEach(function (item) {
-  let name = item.name;
-  let link = item.link;
+  const name = item.name;
+  const link = item.link;
 
   // Create new card, get values from array and append it to the container
   const card = createCard(name, link);
@@ -142,16 +143,14 @@ function handleFormSubmit(evt) {
 // Submit form to create new card
 function handleFormSubmitImg(evt) {
   evt.preventDefault();
-  let name = document.querySelector(".popup__form-input_type_title");
-  let link = document.querySelector(".popup__form-input_type_img");
 
   // Create new card, get values from input field and prepend it to the container
-  let card = createCard(name.value, link.value);
+  let card = createCard(cardName.value, cardLink.value);
   cardContainer.prepend(card);
 
   // Clear input values after submitting
-  name.value = "";
-  link.value = "";
+  cardName.value = "";
+  cardLink.value = "";
 
   closePopup(addImgPopup);
 }

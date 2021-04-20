@@ -1,3 +1,7 @@
+@import url(type/popup__close-icon_type_add-img.css);
+@import url(type/popup__close-icon_type_edit.css);
+@import url(type/popup__close-icon_type_image.css);
+
 .popup__close-icon {
   outline: 0;
   border: 0;
@@ -6,9 +10,6 @@
   background-image: url(../../../images/close-icon.svg);
   background-size: contain;
   background-color: transparent;
-  position: relative;
-  left: 420px;
-  top: 5px;
   transition: opacity 0.4s ease;
   cursor: pointer;
 }
@@ -19,8 +20,6 @@
 
 @media screen and (max-width: 610px) {
   .popup__close-icon {
-    top: 5px;
-    left: 280px;
     width: 30px;
     height: 30px;
   }
