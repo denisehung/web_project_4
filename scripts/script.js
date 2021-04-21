@@ -145,7 +145,7 @@ function handleFormSubmitImg(evt) {
   evt.preventDefault();
 
   // Create new card, get values from input field and prepend it to the container
-  let card = createCard(cardName.value, cardLink.value);
+  const card = createCard(cardName.value, cardLink.value);
   cardContainer.prepend(card);
 
   // Clear input values after submitting
