@@ -1,11 +1,11 @@
-.popup__close-icon_type_add-img {
+.popup__close-button_type_edit {
     position: relative;
     left: 420px;
     top: 5px;
 }
 
 @media screen and (max-width: 610px) {
-    .popup__close-icon_type_add-img {
+    .popup__close-button_type_edit {
         top: 5px;
         left: 280px;
     }
