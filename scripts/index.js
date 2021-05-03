@@ -74,13 +74,13 @@ function deleteImage(cardElement) {
 // Open popup element
 function openPopup(popupElement) {
   popupElement.classList.add("popup_opened");
-  popupElement.removeEventListener("click", openPopup);
+  document.addEventListener('keydown', closeByEscape);
 }
 
 // Close popup element
 function closePopup(popupElement) {
   popupElement.classList.remove("popup_opened");
-  popupElement.removeEventListener("click", closePopup);
+  document.removeEventListener('keydown', closeByEscape);
 }
 
 // Open popup to display larger image
@@ -139,7 +139,7 @@ function editProfile() {
 function handleFormSubmit(evt) {
   evt.preventDefault();
 
-  // Corresponding values on page are changed into the values the user has entered
+  // Corresponding values on page are changed into the submitted values
   profileName.textContent = nameInput.value;
   profileTitle.textContent = jobInput.value;
 
@@ -169,6 +169,14 @@ function addImage() {
   openPopup(addImgPopup);
 }
 
+// Close popup by pressing Escape button
+function closeByEscape(evt) {
+  if (evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_opened')
+    closePopup(openedPopup);
+  }
+}
+
 // ******************* EVENT LISTENERS and FUNCTION CALLS *********************** //
 
 editForm.addEventListener("submit", handleFormSubmit);
@@ -177,34 +185,17 @@ addImgForm.addEventListener("submit", handleFormSubmitImg);
 // Open popup to edit profile
 editButton.addEventListener("click", editProfile);
 
-// Close edit profile form
-editCloseButton.addEventListener("click", function () {
-  closePopup(editPopup);
-});
-
-// Close add image form
-addImgCloseButton.addEventListener("click", function () {
-  closePopup(addImgPopup);
-});
-
-// Close image popup
-closeImagePopup.addEventListener("click", function () {
-  closePopup(imagePopup);
-});
-
 // Open popup to add new image
 addImgButton.addEventListener("click", addImage);
 
-// Close popup by clicking on overlay
-popups.forEach(function (item) {
-  item.addEventListener("click", function (evt) {
-    closePopup(evt.target);
-  });
-});
-
-// Close popup by pressing Escape button
-document.addEventListener("keydown", function (evt) {
-  if (evt.key === "Escape") {
-    popups.forEach(closePopup);
-  }
+// Close popup by clicking on overlay or close button
+popups.forEach(function (popup) {
+  popup.addEventListener('click', (evt) => {
+    if (evt.target.classList.contains('popup_opened')) {
+      closePopup(popup)
+    }
+    if (evt.target.classList.contains('popup__close-button')) {
+      closePopup(popup)
+    }
+  })
 });
