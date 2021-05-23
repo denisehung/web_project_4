@@ -46,6 +46,8 @@ class FormValidator {
     }
 
     _toggleButtonState() {
+        // Find all input fields inside the form
+        const inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector));
         const button = this._formElement.querySelector(this._submitButtonSelector); 
 
         // If there is at least one invalid input, button is inactive
@@ -59,7 +61,6 @@ class FormValidator {
     }
 
     _setEventListeners() {
-        // Find all input fields inside the form
         const inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector));
 
         inputList.forEach((inputElement) => {
