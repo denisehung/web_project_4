@@ -1,75 +1,72 @@
-const cardContainer = document.querySelector(".image-grid");
+import Card from "./Card.js";
+import {settings, FormValidator} from "./FormValidator.js";
 
+// Edit profile variables
 const editButton = document.querySelector(".profile__edit-button");
 const editForm = document.querySelector(".popup__form-main_type_edit");
 const editPopup = document.querySelector(".popup_type_edit");
-const editCloseButton = document.querySelector(".popup__close-button_type_edit");
 
+// Add image variables
 const addImgButton = document.querySelector(".profile__add-button");
 const addImgForm = document.querySelector(".popup__form-main_img");
 const addImgPopup = document.querySelector(".popup_type_add-img");
 const addImgSubmitButton = document.querySelector(".popup__submit-button_type_add-img");
-const addImgCloseButton = document.querySelector(".popup__close-button_type_add-img");
 const cardName = document.querySelector(".popup__input_type_title");
 const cardLink = document.querySelector(".popup__input_type_img");
+const cardContainer = document.querySelector(".image-grid");
 
-const imagePopup = document.querySelector(".popup_type_image");
-const closeImagePopup = document.querySelector(".popup__close-button_type_image");
-const largeImage = document.querySelector(".popup__image");
-const imageCaption = document.querySelector(".popup__caption");
-
+// Profile detail variables
 const nameInput = document.querySelector(".popup__input_type_name");
 const jobInput = document.querySelector(".popup__input_type_about");
 const profileName = document.querySelector(".profile__name");
 const profileTitle = document.querySelector(".profile__about");
 
+// Popup variables
 const popups = document.querySelectorAll(".popup");
 const popupSubmitButton = document.querySelector(".popup__submit-button");
 
+// Create form instance for edit profile and add image form
+const profileValidator = new FormValidator(settings, editForm);
+const imageValidator = new FormValidator(settings, addImgForm);
+
+// Apply enableValidation method on forms
+profileValidator.enableValidation();
+imageValidator.enableValidation();
+
+// Array with properties for initial cards
 const initialCards = [{
-    name: "Yosemite Valley",
-    link: "https://code.s3.yandex.net/web-code/yosemite.jpg"
-  },
-  {
-    name: "Lake Louise",
-    link: "https://code.s3.yandex.net/web-code/lake-louise.jpg"
-  },
-  {
-    name: "Bald Mountains",
-    link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg"
-  },
-  {
-    name: "Latemar",
-    link: "https://code.s3.yandex.net/web-code/latemar.jpg"
-  },
-  {
-    name: "Vanoise National Park",
-    link: "https://code.s3.yandex.net/web-code/vanoise.jpg"
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://code.s3.yandex.net/web-code/lago.jpg"
-  }
+  name: "Yosemite Valley",
+  link: "https://code.s3.yandex.net/web-code/yosemite.jpg"
+},
+{
+  name: "Lake Louise",
+  link: "https://code.s3.yandex.net/web-code/lake-louise.jpg"
+},
+{
+  name: "Bald Mountains",
+  link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg"
+},
+{
+  name: "Latemar",
+  link: "https://code.s3.yandex.net/web-code/latemar.jpg"
+},
+{
+  name: "Vanoise National Park",
+  link: "https://code.s3.yandex.net/web-code/vanoise.jpg"
+},
+{
+  name: "Lago di Braies",
+  link: "https://code.s3.yandex.net/web-code/lago.jpg"
+}
 ];
 
-
-// Like buttons
-function likeImage(cardElement) {
-  const likeButton = cardElement.querySelector(".card__heart-icon")
-  // Toggle between active and inactive state when being clicked
-  likeButton.addEventListener("click", function (evt) {
-    evt.target.classList.toggle("card__heart-icon_active");
-  });
-}
-
-// Delete image
-function deleteImage(cardElement) {
-  const deleteButton = cardElement.querySelector(".card__delete");
-
-  deleteButton.addEventListener("click", function (evt) {
-    evt.target.closest(".card").remove();
-  });
-}
+// Load initial cards
+initialCards.forEach((item) => {
+  // Create a card instance, return it and append to container
+  const card = new Card(item, ".card-template");
+  const cardElement = card.generateCard();
+  cardContainer.append(cardElement);
+});
 
 // Open popup element
 function openPopup(popupElement) {
@@ -82,47 +79,6 @@ function closePopup(popupElement) {
   popupElement.classList.remove("popup_opened");
   document.removeEventListener('keydown', closeByEscape);
 }
-
-// Open popup to display larger image
-function openImage(cardElement, name, link) {
-  const cardImage = cardElement.querySelector(".card__image");
-
-  cardImage.addEventListener("click", function () {
-    largeImage.src = link;
-    largeImage.alt = name;
-    imageCaption.textContent = name;
-    openPopup(imagePopup);
-  });
-}
-
-// Create new card
-function createCard(name, link) {
-  const cardTemplate = document.querySelector("#card-template").content;
-  const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
-  const cardImage = cardElement.querySelector(".card__image");
-  const cardTitle = cardElement.querySelector(".card__title");
-
-  cardTitle.textContent = name;
-  cardImage.src = link;
-  cardImage.alt = cardTitle.textContent;
-
-  // Add these functionalities to created cards
-  likeImage(cardElement);
-  deleteImage(cardElement);
-  openImage(cardElement, name, link);
-
-  return cardElement;
-}
-
-// Load inital cards by looping through array
-initialCards.forEach(function (item) {
-  const name = item.name;
-  const link = item.link;
-
-  // Create new card, get values from array and append it to the container
-  const card = createCard(name, link);
-  cardContainer.append(card);
-});
 
 // Open modal popup with edit form when clicked
 function editProfile() {
@@ -155,8 +111,14 @@ function handleFormSubmitImg(evt) {
   evt.preventDefault();
 
   // Create new card, get values from input field and prepend it to the container
-  const card = createCard(cardName.value, cardLink.value);
-  cardContainer.prepend(card);
+  const card = new Card({
+    name: cardName.value,
+    link: cardLink.value
+  }, "#card-template");
+
+  const cardElement = card.generateCard();
+  cardContainer.prepend(cardElement);
+
   resetImageForm();
   closePopup(addImgPopup);
 }
@@ -177,7 +139,7 @@ function closeByEscape(evt) {
   }
 }
 
-// ******************* EVENT LISTENERS and FUNCTION CALLS *********************** //
+// ******************* EVENT LISTENERS *********************** //
 
 editForm.addEventListener("submit", handleFormSubmit);
 addImgForm.addEventListener("submit", handleFormSubmitImg);
@@ -199,3 +161,5 @@ popups.forEach(function (popup) {
     }
   })
 });
+
+export default openPopup;
