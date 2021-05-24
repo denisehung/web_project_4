@@ -1,4 +1,4 @@
-import openPopup from "./index.js";
+import {openPopup, largeImage, imagePopup, imageCaption} from "./index.js";
 
 class Card {
     constructor(data, template) {
@@ -58,10 +58,6 @@ class Card {
     }
 
     _openImage() {
-        const largeImage = document.querySelector(".popup__image");
-        const imagePopup = document.querySelector(".popup_type_image");
-        const imageCaption = document.querySelector(".popup__caption");
-
         largeImage.src = this._link;
         largeImage.alt = this._name;
         imageCaption.textContent = this._name;
