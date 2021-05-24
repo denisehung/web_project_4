@@ -6,11 +6,10 @@ const editButton = document.querySelector(".profile__edit-button");
 const editForm = document.querySelector(".popup__form-main_type_edit");
 const editPopup = document.querySelector(".popup_type_edit");
 
-// Add image variables
+// Add image and card variables
 const addImgButton = document.querySelector(".profile__add-button");
 const addImgForm = document.querySelector(".popup__form-main_img");
 const addImgPopup = document.querySelector(".popup_type_add-img");
-const addImgSubmitButton = document.querySelector(".popup__submit-button_type_add-img");
 const cardName = document.querySelector(".popup__input_type_title");
 const cardLink = document.querySelector(".popup__input_type_img");
 const cardContainer = document.querySelector(".image-grid");
@@ -23,9 +22,11 @@ const profileTitle = document.querySelector(".profile__about");
 
 // Popup variables
 const popups = document.querySelectorAll(".popup");
-const popupSubmitButton = document.querySelector(".popup__submit-button");
+const largeImage = document.querySelector(".popup__image");
+const imagePopup = document.querySelector(".popup_type_image");
+const imageCaption = document.querySelector(".popup__caption");
 
-// Create form instance for edit profile and add image form
+// Create form instance for profile and image form
 const profileValidator = new FormValidator(settings, editForm);
 const imageValidator = new FormValidator(settings, addImgForm);
 
@@ -60,11 +61,15 @@ const initialCards = [{
 }
 ];
 
+// Create new card instance
+function createCard(data){
+  const newCard = new Card(data, "#card-template");
+  return newCard.generateCard();
+}
+
 // Load initial cards
 initialCards.forEach((item) => {
-  // Create a card instance, return it and append to container
-  const card = new Card(item, ".card-template");
-  const cardElement = card.generateCard();
+  const cardElement = createCard(item);
   cardContainer.append(cardElement);
 });
 
@@ -80,14 +85,11 @@ function closePopup(popupElement) {
   document.removeEventListener('keydown', closeByEscape);
 }
 
-// Open modal popup with edit form when clicked
 function editProfile() {
-  // Submit button is initially enabled
-  popupSubmitButton.classList.remove("popup__submit-button_inactive");
-  popupSubmitButton.disabled = false;
   // Input fields contain corresponding values on page
   nameInput.value = profileName.textContent;
   jobInput.value = profileTitle.textContent;
+  profileValidator.toggleButtonState();
   openPopup(editPopup);
 }
 
@@ -110,13 +112,13 @@ function resetImageForm() {
 function handleFormSubmitImg(evt) {
   evt.preventDefault();
 
-  // Create new card, get values from input field and prepend it to the container
-  const card = new Card({
-    name: cardName.value,
+  // Get data from input fields
+  const cardData = {
+    name: cardName.value, 
     link: cardLink.value
-  }, "#card-template");
-
-  const cardElement = card.generateCard();
+  }
+  
+  const cardElement = createCard(cardData);
   cardContainer.prepend(cardElement);
 
   resetImageForm();
@@ -124,10 +126,8 @@ function handleFormSubmitImg(evt) {
 }
 
 function addImage() {
-  // Submit button is initially disabled until user enters valid inputs
-  addImgSubmitButton.classList.add("popup__submit-button_inactive");
-  addImgSubmitButton.disabled = true;
   resetImageForm();
+  imageValidator.toggleButtonState()
   openPopup(addImgPopup);
 }
 
@@ -162,4 +162,4 @@ popups.forEach(function (popup) {
   })
 });
 
-export default openPopup;
+export {openPopup, largeImage, imagePopup, imageCaption};
