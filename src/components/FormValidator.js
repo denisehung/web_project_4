@@ -77,4 +77,4 @@ class FormValidator {
     }
 }
 
-export {settings, FormValidator};
+export { settings, FormValidator };

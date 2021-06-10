@@ -1,10 +1,9 @@
-import {openPopup, largeImage, imagePopup, imageCaption} from "./index.js";
-
-class Card {
-    constructor(data, template) {
+export default class Card {
+    constructor({ data, handleCardClick }, template) {
         this._name = data.name;
         this._link = data.link;
         this._template = template;
+        this._handleCardClick = handleCardClick;
     }
 
     _getTemplate() {
@@ -41,7 +40,7 @@ class Card {
             .addEventListener('click', () => this._deleteImage());
 
         this._element.querySelector(".card__image")
-            .addEventListener('click', () => this._openImage());
+            .addEventListener('click', () => this._handleCardClick({ name: this._name, link: this._link }));
     }
 
     // Like button
@@ -56,13 +55,4 @@ class Card {
         const deleteButton = this._element.querySelector(".card__delete");
         deleteButton.closest(".card").remove();
     }
-
-    _openImage() {
-        largeImage.src = this._link;
-        largeImage.alt = this._name;
-        imageCaption.textContent = this._name;
-        openPopup(imagePopup);
-    }
 }
-
-export default Card;
