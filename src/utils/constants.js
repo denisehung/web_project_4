@@ -8,12 +8,16 @@ export const addImgButton = document.querySelector(".profile__add-button");
 export const addImgForm = document.querySelector(".popup__form-main_img");
 export const cardContainer = document.querySelector(".image-grid");
 export const popupAddImage = ".popup_type_add-img";
+export const popupLargeImage = ".popup_type_image";
 
 // Profile detail variables
 export const nameInput = document.querySelector(".popup__input_type_name");
 export const jobInput = document.querySelector(".popup__input_type_about");
 export const profileName = document.querySelector(".profile__name");
 export const profileJob = document.querySelector(".profile__about");
+
+export const cardTemplate = "#card-template";
+export const imageGrid = ".image-grid";
 
 // Array with properties for initial cards
 export const initialCards = [{
