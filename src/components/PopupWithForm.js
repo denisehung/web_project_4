@@ -16,10 +16,6 @@ export default class PopupWithForm extends Popup {
         return this._formValues;
     }
 
-    open() {
-        super.open();
-    }
-
     close() {
         super.close();
         this._popupElement.querySelector(".popup__form-main").reset();
