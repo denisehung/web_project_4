@@ -4,6 +4,8 @@ export default class Card {
         this._link = data.link;
         this._template = template;
         this._handleCardClick = handleCardClick;
+        this._element = this._getTemplate();
+        this._image = this._element.querySelector(".card__image");
     }
 
     _getTemplate() {
@@ -19,15 +21,12 @@ export default class Card {
     }
 
     generateCard() {
-        // Store the markup in the private field _element
-        // so other elements can access it
-        this._element = this._getTemplate();
         this._setEventListeners();
 
         // Add data
         this._element.querySelector(".card__title").textContent = this._name;
-        this._element.querySelector(".card__image").src = this._link;
-        this._element.querySelector(".card__image").alt = this._name;
+        this._image.src = this._link;
+        this._image.alt = this._name;
 
         return this._element;
     }
@@ -39,7 +38,7 @@ export default class Card {
         this._element.querySelector(".card__delete")
             .addEventListener('click', () => this._deleteImage());
 
-        this._element.querySelector(".card__image")
+        this._image
             .addEventListener('click', () => this._handleCardClick({ name: this._name, link: this._link }));
     }
 

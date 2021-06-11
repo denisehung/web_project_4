@@ -1,10 +1,10 @@
 import Popup from "./Popup.js";
-import { imageValidator } from "../index.js";
 
 export default class PopupWithForm extends Popup {
     constructor({ popupSelector, handleFormSubmit }) {
         super(popupSelector);
         this._handleFormSubmit = handleFormSubmit;
+        this._form = this._popupElement.querySelector(".popup__form-main");
     }
 
     _getInputValues() {
@@ -18,7 +18,6 @@ export default class PopupWithForm extends Popup {
 
     open() {
         super.open();
-        imageValidator.toggleButtonState();
     }
 
     close() {
@@ -29,7 +28,7 @@ export default class PopupWithForm extends Popup {
     setEventListeners() {
         super.setEventListeners();
         
-        this._popupElement.querySelector(".popup__form-main").addEventListener("submit", (evt) => {
+        this._form.addEventListener("submit", (evt) => {
             evt.preventDefault();
 
             this._handleFormSubmit(this._getInputValues());
