@@ -5,8 +5,7 @@ import Section from "./components/Section.js";
 import PopupWithImage from "./components/PopupWithImage.js";
 import PopupWithForm from "./components/PopupWithForm.js";
 import UserInfo from "./components/UserInfo.js";
-import { settings, editButton, editForm, addImgButton, addImgForm, nameInput, jobInput, initialCards, profileName, profileJob, popupEditProfile, popupAddImage } from "./utils/constants.js"
-
+import { settings, editButton, editForm, addImgButton, addImgForm, nameInput, jobInput, initialCards, profileName, profileJob, popupEditProfile, popupAddImage, popupLargeImage, cardTemplate, imageGrid } from "./utils/constants.js"
 
 const profileValidator = new FormValidator(settings, editForm);
 const imageValidator = new FormValidator(settings, addImgForm);
@@ -21,6 +20,7 @@ const userInfo = new UserInfo ({
   jobSelector: profileJob
 });
 
+// Create new card
 function createCard(data) {
   const card = new Card({
     data,
@@ -28,7 +28,7 @@ function createCard(data) {
         imagePopup.open({ name, link });
       }
     },
-    "#card-template");
+    cardTemplate);
   return card.generateCard();
 }
 
@@ -51,7 +51,7 @@ editButton.addEventListener("click", () => {
 
 
 //Image popup
-const imagePopup = new PopupWithImage(".popup_type_image");
+const imagePopup = new PopupWithImage(popupLargeImage);
 imagePopup.setEventListeners();
 
 
@@ -79,8 +79,6 @@ const cardList = new Section({
       cardList.addItem(cardElement);
     }
   },
-  ".image-grid");
+  imageGrid);
 
 cardList.renderItems();
-
-export { imageValidator };
