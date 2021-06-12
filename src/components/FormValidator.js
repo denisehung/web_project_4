@@ -38,7 +38,7 @@ export default class FormValidator {
         });
     }
 
-    toggleButtonState() {
+    _toggleButtonState() {
             // If there is at least one invalid input, button is inactive
         if (this._hasInvalidInput(this._inputList)) {
             this._button.classList.add(this._inactiveButtonClass);
@@ -49,12 +49,19 @@ export default class FormValidator {
         }
     }
 
+    resetValidation() {
+        this._toggleButtonState();
+        this._inputList.forEach((inputElement) => {
+            this._hideInputError(inputElement)
+        });
+    }
+
     _setEventListeners() {
 
         this._inputList.forEach((inputElement) => {
             inputElement.addEventListener("input", () => {
                 this._isValid(inputElement);
-                this.toggleButtonState();
+                this._toggleButtonState();
             });
         }); 
         
