@@ -2,7 +2,7 @@
   "name": "web_project_4",
   "version": "1.0.0",
   "description": "Web Project 4",
-  "main": "index.js",
+  "main": "./pages/index.js",
   "scripts": {
     "build": "webpack --mode production",
     "dev": "webpack serve"
