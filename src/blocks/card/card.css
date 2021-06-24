@@ -3,6 +3,8 @@
 @import url(./__textblock/card__textblock.css);
 @import url(./__title/card__title.css);
 @import url(./__heart-icon/card__heart-icon.css);
+@import url(./card__likes-container/card__likes-container.css);
+@import url(./__likes-counter/card__likes-container.css);
 
 .card {
   border-radius: 10px;
