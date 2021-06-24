@@ -22,7 +22,7 @@ export default class PopupWithForm extends Popup {
         this._popupElement.querySelector(".popup__form-main").reset();
     }
 
-    _renderLoading(isLoading) {
+    renderLoading(isLoading) {
         if(isLoading) {
           this._popupElement.querySelector(".popup__submit-button").textContent = "Saving...";
         } else {
@@ -35,7 +35,7 @@ export default class PopupWithForm extends Popup {
         
         this._form.addEventListener("submit", (evt) => {
             evt.preventDefault();
-            this._renderLoading(true);       
+            this.renderLoading(true);       
             this._handleFormSubmit(this._getInputValues());
 
             this.close();

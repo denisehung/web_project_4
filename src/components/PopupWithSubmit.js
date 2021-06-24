@@ -29,7 +29,7 @@ export default class PopupWithSubmit extends Popup {
         this._confirmDeleteButton.addEventListener("click", (evt) => {
             evt.preventDefault();
             this._handleFormSubmit();
-            this.ArenderLoading(true);
+            this.renderLoading(true);
             this.close();
         })       
     }   
