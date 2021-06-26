@@ -38,35 +38,34 @@ export default class Card {
         }
     }
 
-    // Display likes counter, but only if there are more than 0 likes
+    // Display likes counter
     _likeCount() {
-        if(this._likes.length > 0){
-            this._likesCounter.textContent = this._likes.length;
-        }
-    }
-
-    // Remove delete button if card is not created by user
-    showDeleteButton() {
-        if(this._ownerId !== this._userId) {
-            this._element.querySelector(".card__delete").remove();
-          }
+        this._likesCounter.textContent = this._likes.length;
     }
 
     // Activate like and update likes counter
     _activeLike() {
         this._likeButton.classList.add("card__heart-icon_active");
-        this._likesCounter.textContent = this._likes.length;
+        this._likesCounter.textContent = this._likes.length + 1;
     }
 
     // Inactivate like and update likes counter
     // If there is less than 1 like, don't display counter
     _inactiveLike() {
         this._likeButton.classList.remove("card__heart-icon_active");
-        this._likesCounter.textContent = this._likes.length;
-        if(this._likes.length < 1) {
-            this._likesCounter.textContent = "";
-        }
-    }    
+        this._likesCounter.textContent = this._likes.length - 1;
+    }
+
+    updateLikes(likes){
+        this._likes = likes;
+    }
+    
+    // Remove delete button if card is not created by user
+    showDeleteButton() {
+        if(this._ownerId !== this._userId) {
+            this._element.querySelector(".card__delete").remove();
+          }
+    }
 
     // Delete image
     deleteImage() {
@@ -93,9 +92,11 @@ export default class Card {
         this._likeButton.addEventListener('click', () => {
             if(this._likes.some(like => like._id === this._userId)){
                 this._handleRemoveLike(this);
+                this._inactiveLike(this);
             }
             else { // Otherwise add like with handler
-                this._handleAddLike(this);                
+                this._handleAddLike(this);    
+                this._activeLike(this);           
             }
         });
 
