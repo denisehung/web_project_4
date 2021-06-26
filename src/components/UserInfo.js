@@ -1,7 +1,8 @@
 export default class UserInfo {
-    constructor({ nameSelector, jobSelector }) {
+    constructor({ nameSelector, jobSelector, avatar }) {
         this._nameElement = nameSelector;
         this._jobElement = jobSelector;
+        this._avatar = avatar;
       }
     
 
@@ -17,4 +18,10 @@ export default class UserInfo {
         this._nameElement.textContent = username;
         this._jobElement.textContent = userjob;
     }
+
+    changeAvatar(data) {
+        const{ link } = data;
+        this._avatar.src = link;
+    }
+
 }
