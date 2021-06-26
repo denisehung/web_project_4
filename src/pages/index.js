@@ -30,7 +30,8 @@ const api = new Api({
 // Create new userInfo object for user data
 const userInfo = new UserInfo ({
   nameSelector: profileName,
-  jobSelector: profileJob
+  jobSelector: profileJob,
+  avatar: profileImage
 });
 
 // Popup to confirm if image has to be deleted
@@ -39,12 +40,19 @@ const deleteImagePopup = new PopupWithSubmit({
 });
 deleteImagePopup.setEventListeners();
 
+/*api.getAppInfo().catch((err) => {
+  console.log(err);
+});*/
+
 // Get userInfo form server and display on page
 api.getUserInfo().then(res => {
   console.log(res);
   userInfo.setUserInfo({ username: res.name, userjob: res.about });
+  userInfo.changeAvatar({ link: res.avatar })
   userInfo.userId = res._id;
-  profileImage.src = res.avatar;
+})
+.catch((err) => {
+  console.log(err);
 })
 
 // Get cards array from server and render/display on page
@@ -72,6 +80,9 @@ api.getInitialCards().then(res => {
         cardList.addNewItem(cardElement);
         addImagePopup.close();
       })
+      .catch((err) => {
+        console.log(err); // Log error to console
+      })
       .finally(() => {
         addImagePopup.renderLoading(false);
       })    
@@ -84,6 +95,9 @@ api.getInitialCards().then(res => {
     addImagePopup.open();
     imageValidator.resetValidation();
   })
+})
+.catch((err) => {
+  console.log(err);
 });
 
 // Create new card
@@ -99,22 +113,30 @@ function createCard(data) {
           api.removeCard(data._id)
           .then(() => {
             card.deleteImage();
-          })  
+            deleteImagePopup.close();
+          })
+          .catch((err) => {
+            console.log(err);
+          })
         })
-      }, // Add like to array and make like button active
+      }, // Add like to array
       handleAddLike: (data) => {
         api.addLike(data._id)
         .then(res => {
-          card._likes = res.likes;
-          card._activeLike();
+          card.updateLikes(res.likes);
         })
-      }, // Remove like from array and make like button inactive
+        .catch((err) => {
+          console.log(err);
+      })
+      }, // Remove like from array
       handleRemoveLike: (data) => {
         api.removeLike(data._id)
         .then(res => {
-          card._likes = res.likes;
-          card._inactiveLike();
+          card.updateLikes(res.likes);
         })
+        .catch((err) => {
+          console.log(err);
+      })
       }, // pass userId
       userId: userInfo.userId,
     },
@@ -130,6 +152,9 @@ const editFormPopup = new PopupWithForm({
     .then(() => {
       userInfo.setUserInfo({ username: data.username, userjob: data.userjob });
       editFormPopup.close();
+    })
+    .catch((err) => {
+      console.log(err); // Log error to console
     })
     .finally(() => {
       editFormPopup.renderLoading(false);
@@ -158,8 +183,11 @@ const profileImagePopup = new PopupWithForm({
   handleFormSubmit: (data) => {
     api.setUserAvatar({ avatar: data.link })
        .then(() => {
-         profileImage.src = data.link;
+         userInfo.changeAvatar(data);
          profileImagePopup.close();  
+      })
+      .catch((err) => {
+        console.log(err);
       })
       .finally(() => {
         profileImagePopup.renderLoading(false);
