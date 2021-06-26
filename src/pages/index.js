@@ -34,71 +34,57 @@ const userInfo = new UserInfo ({
   avatar: profileImage
 });
 
-// Popup to confirm if image has to be deleted
-const deleteImagePopup = new PopupWithSubmit({
-  popupSelector: popupDeleteImage
-});
-deleteImagePopup.setEventListeners();
+Promise.all([api.getUserInfo(), api.getInitialCards()])
+  .then((values) => {
+    const [userValues, initialCards] = values;
+    console.log(userValues);
+    console.log(initialCards);
 
-/*api.getAppInfo().catch((err) => {
-  console.log(err);
-});*/
-
-// Get userInfo form server and display on page
-api.getUserInfo().then(res => {
-  console.log(res);
-  userInfo.setUserInfo({ username: res.name, userjob: res.about });
-  userInfo.changeAvatar({ link: res.avatar })
-  userInfo.userId = res._id;
-})
-.catch((err) => {
-  console.log(err);
-})
-
-// Get cards array from server and render/display on page
-api.getInitialCards().then(res => {
-  const cardList = new Section({
-    items: res,
-    renderer: (data) => {
-      const cardElement = createCard(data);
-      cardList.addItem(cardElement);
-    }
-  },
-    imageGrid);
-  
-  cardList.renderItems();
-  console.log(res);
-  
-  // Popup form to create new card and save data on server
-  const addImagePopup = new PopupWithForm({
-    popupSelector: popupAddImage,
-    handleFormSubmit: (data) => {
-      api.addCard(data)
-      .then(cardData => {
-        console.log(cardData);
-        const cardElement = createCard(cardData);
-        cardList.addNewItem(cardElement);
-        addImagePopup.close();
-      })
-      .catch((err) => {
-        console.log(err); // Log error to console
-      })
-      .finally(() => {
-        addImagePopup.renderLoading(false);
-      })    
-    }
-  });  
-  addImagePopup.setEventListeners();
-
-  // Open popup with form; input fields and validation messages are being reset
-  addImgButton.addEventListener("click", () => { 
-    addImagePopup.open();
-    imageValidator.resetValidation();
+    // Get userInfo from server and display on page
+    userInfo.setUserInfo({ username: userValues.name, userjob: userValues.about });
+    userInfo.changeAvatar({ link: userValues.avatar })
+    userInfo.userId = userValues._id;
+    
+    // Get cards array from server and render/display on page
+    const cardList = new Section({
+      items: initialCards,
+      renderer: (data) => {
+        const cardElement = createCard(data);
+        cardList.addItem(cardElement);
+      }
+    }, imageGrid);
+    cardList.renderItems();
+    
+    // Popup form to create new card and save data on server
+    const addImagePopup = new PopupWithForm({
+      popupSelector: popupAddImage,
+      handleFormSubmit: (data) => {
+        api.addCard(data)
+        .then(cardData => {
+          console.log(cardData);
+          const cardElement = createCard(cardData);
+          cardList.addNewItem(cardElement);
+          addImagePopup.close();
+        })
+        .catch((err) => {
+          console.log(err); // Log error to console
+        })
+        .finally(() => {
+          addImagePopup.renderLoading(false);
+        })    
+      }
+    });  
+    addImagePopup.setEventListeners();
+    
+    // Open popup with form; input fields and validation messages are being reset
+    addImgButton.addEventListener("click", () => { 
+      addImagePopup.open();
+      imageValidator.resetValidation();
+    })
   })
-})
-.catch((err) => {
-  console.log(err);
-});
+  .catch((err) => {
+    console.log(err);
+  });
 
 // Create new card
 function createCard(data) {
@@ -172,6 +158,12 @@ editButton.addEventListener("click", () => {
   editFormPopup.open();
   profileValidator.resetValidation(); 
 })
+
+// Popup to confirm if image has to be deleted
+const deleteImagePopup = new PopupWithSubmit({
+  popupSelector: popupDeleteImage
+});
+deleteImagePopup.setEventListeners();
 
 //Image popup
 const imagePopup = new PopupWithImage(popupLargeImage);
