@@ -13,12 +13,12 @@ export default class PopupWithSubmit extends Popup {
         this._handleFormSubmit = action;
       }
     
-    // Change button text to 'Saving...' while uploading data (renderLoading is true)
+    // Change button text to 'Deleting...' while uploading data (renderLoading is true)
     renderLoading(isLoading) {
         if(isLoading) {
-          this._popupElement.querySelector(".popup__submit-button").textContent = "Deleting...";
+          this._confirmDeleteButton.textContent = "Deleting...";
         } else {
-          this._popupElement.querySelector(".popup__submit-button").textContent = this._buttonText;
+          this._confirmDeleteButton.textContent = this._buttonText;
         }
       }
 
@@ -27,7 +27,7 @@ export default class PopupWithSubmit extends Popup {
         
         this._confirmDeleteButton.addEventListener("click", (evt) => {
             evt.preventDefault();
-            this.handleFormSubmit();
+            this._handleFormSubmit();
             this.renderLoading(true);
         })       
     }   
