@@ -35,8 +35,8 @@ const userInfo = new UserInfo ({
 });
 
 Promise.all([api.getUserInfo(), api.getInitialCards()])
-  .then((values) => {
-    const [userValues, initialCards] = values;
+  .then(res => {
+    const [userValues, initialCards] = res;
     console.log(userValues);
     console.log(initialCards);
 
