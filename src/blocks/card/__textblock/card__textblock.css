@@ -1,6 +1,7 @@
 .card__textblock {
   display: flex;
-  max-width: 246px;
   justify-content: space-between;
   margin: 0 auto;
+  padding-left: 10%;
+  padding-right: 10%;
 }

@@ -48,9 +48,11 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
     // Get cards array from server and render/display on page
     const cardList = new Section({
       items: initialCards,
-      renderer: (data) => {
-        const cardElement = createCard(data);
-        cardList.addItem(cardElement);
+      renderer: (data) => { 
+        if(data.owner._id === "e2bd721daeb784ecbaa3545f"){  
+          const cardElement = createCard(data);      
+          cardList.addItem(cardElement);
+        }
       }
     }, imageGrid);
     cardList.renderItems();
@@ -192,3 +194,5 @@ profileImageOverlay.addEventListener("click", () => {
   profileImagePopup.open();
   profileImageValidator.resetValidation();
 });
+
+//if(data.owner._id === "e2bd721daeb784ecbaa3545f"){}

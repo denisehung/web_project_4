@@ -73,6 +73,7 @@ export default class Card {
         deleteButton.closest(".card").remove();
     }
 
+    
     generateCard() {
         this._setEventListeners();
 
