@@ -4,7 +4,7 @@
 @import url(./__title/card__title.css);
 @import url(./__heart-icon/card__heart-icon.css);
 @import url(./card__likes-container/card__likes-container.css);
-@import url(./__likes-counter/card__likes-container.css);
+@import url(./__likes-counter/card__likes-counter.css);
 
 .card {
   border-radius: 10px;
