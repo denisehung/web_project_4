@@ -1,5 +1,5 @@
 .card__likes-container {
     display: flex;
     flex-direction: column;
-    padding: 0;
+    align-items: center;
 }
