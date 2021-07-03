@@ -49,10 +49,10 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
     const cardList = new Section({
       items: initialCards,
       renderer: (data) => { 
-        if(data.owner._id === "e2bd721daeb784ecbaa3545f"){  
+        //if(data.owner._id === "e2bd721daeb784ecbaa3545f"){  
           const cardElement = createCard(data);      
           cardList.addItem(cardElement);
-        }
+        //}
       }
     }, imageGrid);
     cardList.renderItems();
