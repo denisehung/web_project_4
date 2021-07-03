@@ -1,6 +1,8 @@
 .card__likes-container {
     display: flex;
+    display: -webkit-flex;
     flex-direction: column;
     justify-content: center;
+    -webkit-justify-content: center;
     text-align: center;
 }
