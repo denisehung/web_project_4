@@ -1,7 +1,6 @@
 .card__heart-icon {
   /* prevents highlight around icon when button is touched on mobile */
   -webkit-tap-highlight-color: transparent;
-  align-self: center;
   cursor: pointer;
   width: 21px;
   height: 19px;
