@@ -3,3 +3,10 @@
     left: 420px;
     top: 5px;
 }
+
+@media screen and (max-width: 610px) {
+    .popup__close-button_type_delete {
+        top: 5px;
+        left: 280px;
+    }
+}
