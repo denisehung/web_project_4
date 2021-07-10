@@ -1,4 +1,4 @@
-# Web Project 4 - Around The U.S.
+# Web Project 4 (Sprint 4 to 9) - Around The U.S.
 
 ## Intro
 
@@ -6,7 +6,7 @@ This project is part of the Practicum Web Development bootcamp. It's an interact
 
 The website appearance corresponds with the [design specs](https://www.figma.com/file/SurN1jaeEQIhuZEDMhmWWf/Sprint-4%3A-Around-The-U.S.-%7C-desktop-%2B-mobile?node-id=0%3A1) provided in Figma.
 
-View live project here: [https://denisehung.github.io/web_project_4/](https://denisehung.github.io/web_project_4/)
+[**View live project here**](https://denisehung.github.io/web_project_4/)
 
 ## Project description
 * The page consists of image cards which are rendered from an API server, shared with other students. New cards can be added by submitting a form that requires a name and an image URL as inputs. When the user clicks on the card, a modal window with full size image and image caption will open.
