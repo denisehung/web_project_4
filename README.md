@@ -1,8 +1,8 @@
-# Web Project 4 (Sprint 4 to 9) - Around The U.S.
+# Web Project 4 - Around The U.S.
 
 ## Intro
 
-This project is part of the Practicum Web Development bootcamp. It's an interactive page called 'Around The U.S.' where users can add, remove and like image cards. The webpage is fully responsive and created with HTML, CSS and JavaScript (Object Oriented Programming). The BEM methodology has been applied to structure both CSS and project files.
+This project is part of the Practicum Web Development bootcamp (sprint 4 to 9). It's an interactive page called 'Around The U.S.' where users can add, remove and like image cards. The webpage is fully responsive and created with HTML, CSS and JavaScript (Object Oriented Programming). The BEM methodology has been applied to structure both CSS and project files.
 
 The website appearance corresponds with the [design specs](https://www.figma.com/file/SurN1jaeEQIhuZEDMhmWWf/Sprint-4%3A-Around-The-U.S.-%7C-desktop-%2B-mobile?node-id=0%3A1) provided in Figma.
 
