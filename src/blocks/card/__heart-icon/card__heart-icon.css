@@ -13,10 +13,12 @@
   background-position: center;
 }
 
-.card__heart-icon:hover {
-  opacity: 0.5;
-}
-
 .card__heart-icon_active {
   background-image: url(../../../images/heart-icon-active.svg);
+}
+
+@media(hover: hover) and (pointer: fine) {
+  .card__heart-icon:hover {
+    opacity: 0.5;
+  }
 }
