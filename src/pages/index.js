@@ -5,7 +5,7 @@ import Card from "../components/Card.js";
 import Section from "../components/Section.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
-import PopupWithSubmit from "../components/PopupWithSubmit.js";
+import PopupDelete from "../components/PopupDelete.js";
 import UserInfo from "../components/UserInfo.js";
 import { settings, editButton, editForm, addImgButton, addImgForm, nameInput, jobInput, profileName, profileJob, popupEditProfile, popupAddImage, popupLargeImage, cardTemplate, imageGrid, popupChangeAvatar, profileImage, avatarForm, profileImageOverlay, popupDeleteImage } from "../utils/constants.js"
 
@@ -162,7 +162,7 @@ editButton.addEventListener("click", () => {
 })
 
 // Popup to confirm if image has to be deleted
-const deleteImagePopup = new PopupWithSubmit({
+const deleteImagePopup = new PopupDelete({
   popupSelector: popupDeleteImage
 });
 deleteImagePopup.setEventListeners();
